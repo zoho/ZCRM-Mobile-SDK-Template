@@ -1,1 +1,1 @@
-# ZCRM-iOS-SDK-Template
+# ZCRM-Mobile-SDK-Template
