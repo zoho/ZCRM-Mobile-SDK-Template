@@ -24,7 +24,10 @@ class ViewController: UIViewController {
     
     @IBAction func logoutButtonAction(_ sender: UIButton)
     {
-        ( UIApplication.shared.delegate as! AppDelegate ).logout()
+        print("Logout button pressed!")
+        ( UIApplication.shared.delegate as! AppDelegate ).logout( completion : { ( success ) in
+            print( "Logout successful!" )
+        } )
     }
     
     

@@ -2,6 +2,9 @@
 //  ViewController.swift
 //  ___PROJECTNAME___
 //
+//  Created by ___FULLUSERNAME___ on ___DATE___.
+//  Copyright © ___FULLUSERNAME___. All rights reserved.
+//
 
 import UIKit
 import ZCRMiOS
@@ -24,7 +27,10 @@ class ViewController: UIViewController {
     
     @IBAction func logoutButtonAction(_ sender: UIButton)
     {
-        ( UIApplication.shared.delegate as! AppDelegate ).logout()
+        print("Logout button pressed!")
+        ( UIApplication.shared.delegate as! AppDelegate ).logout( completion : { ( success ) in
+            print( "Logout successful!" )
+        } )
     }
     
     override func viewDidLoad() {
@@ -48,6 +54,7 @@ class ViewController: UIViewController {
         do
         {
             let module : ZCRMModule = ZCRMModule(moduleAPIName: "Contacts")
+            print( "########### Response Headers : \( try module.getRecords().getResponseHeaders() )" )
             let contacts : [ ZCRMRecord ] = try module.getRecords().getData() as! [ZCRMRecord]
             
             if ( list.isEmpty == false )

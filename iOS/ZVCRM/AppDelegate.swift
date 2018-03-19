@@ -145,9 +145,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
     }
     
-    func logout()
+    func logout( completion : @escaping ( Bool ) -> () )
     {
-        loginHandler!.logout()
+        loginHandler!.logout( completion: { ( success ) in
+            completion( success )
+        } )
     }
     
 }

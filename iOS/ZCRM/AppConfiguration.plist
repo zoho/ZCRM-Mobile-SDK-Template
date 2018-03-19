@@ -5,7 +5,7 @@
 	<key>ClientID</key>
 	<string>___VARIABLE_ClientID___</string>
 	<key>ClientSecretID</key>
-	<string>___VARIABLE_ClientSecret___</string>
+	<string>___VARIABLE_ClientSecretID___</string>
 	<key>RedirectURLScheme</key>
 	<string>___VARIABLE_RedirectURLScheme___</string>
 	<key>Type</key>
@@ -13,11 +13,15 @@
 	<key>ApiVersion</key>
 	<string>v2</string>
 	<key>DomainSuffix</key>
-	<string>com</string>
+	<string>___VARIABLE_CountryDomain___</string>
 	<key>AccessType</key>
 	<string>Production</string>
 	<key>AccountsURL</key>
 	<string>https://accounts.zoho.com</string>
+	<key>ShowSignUp</key>
+	<string>false</string>
+	<key>LoginCustomization</key>
+	<string>false</string>
 	<key>OAuthScopes</key>
 	<array>
 		<string>ZohoCRM.settings.READ</string>
@@ -26,8 +30,6 @@
 		<string>ZohoCRM.org.READ</string>
 		<string>Aaaserver.profile.Read</string>
 	</array>
-	<key>ShowSignUp</key>
-	<string>false</string>
 	<key>FirstLaunch</key>
 	<false/>
 </dict>

@@ -2,6 +2,9 @@
 //  AppDelegate.swift
 //  ___PROJECTNAME___
 //
+//  Created by ___FULLUSERNAME___ on ___DATE___.
+//  Copyright © ___FULLUSERNAME___. All rights reserved.
+//
 
 import UIKit
 import CoreData
@@ -145,9 +148,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
     }
     
-    func logout()
+    func logout( completion : @escaping ( Bool ) -> () )
     {
-        loginHandler!.logout()
+        loginHandler!.logout( completion: { ( success ) in
+            completion( success )
+        } )
     }
     
 }
