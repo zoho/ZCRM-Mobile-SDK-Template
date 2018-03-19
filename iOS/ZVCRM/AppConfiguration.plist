@@ -9,17 +9,15 @@
 	<key>RedirectURLScheme</key>
 	<string>___VARIABLE_RedirectURLScheme___</string>
 	<key>Type</key>
-	<string>ZCRM</string>
+	<string>ZVCRM</string>
+	<key>AccountsURL</key>
+	<string>https://accounts.zohoportal.com</string>
+	<key>PortalID</key>
+	<string>___VARIABLE_PortalID___</string>
+	<key>ApiBaseURL</key>
+	<string>https://___VARIABLE_ ApiBaseURL___</string>
 	<key>ApiVersion</key>
 	<string>v2</string>
-	<key>DomainSuffix</key>
-	<string>com</string>
-	<key>AccessType</key>
-	<string>Production</string>
-	<key>AccountsURL</key>
-	<string>https://accounts.zoho.com</string>
-	<key>LoginCustomization</key>
-	<string>false</string>
 	<key>OAuthScopes</key>
 	<array>
 		<string>ZohoCRM.settings.READ</string>
