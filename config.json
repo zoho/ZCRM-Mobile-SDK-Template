@@ -1,7 +1,7 @@
 {
 	"crm" : {
 		"zcrm" : {
-			"android" : "0.0.0",
+			"android" : "0.0.1",
 			"iOS" : "0.0.1"
 		},
 		"zvcrm" : {
