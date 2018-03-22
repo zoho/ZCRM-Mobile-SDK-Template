@@ -54,7 +54,7 @@ class ViewController: UIViewController {
         do
         {
             let module : ZCRMModule = ZCRMModule(moduleAPIName: "Contacts")
-            print( "########### Response Headers : \( try module.getRecords().getResponseHeaders() )" )
+           
             let contacts : [ ZCRMRecord ] = try module.getRecords().getData() as! [ZCRMRecord]
             
             if ( list.isEmpty == false )
@@ -64,7 +64,7 @@ class ViewController: UIViewController {
             
             if( contacts.isEmpty == false )
             {
-                for index in 0..<contacts.count - 1
+                for index in 0..<contacts.count
                 {
                     let lastName = try contacts[ index ].getValue( ofField : "Last_Name" ) as! String
                     list.append( lastName )
