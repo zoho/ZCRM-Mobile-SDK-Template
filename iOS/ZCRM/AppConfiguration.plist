@@ -27,6 +27,7 @@
 		<string>ZohoCRM.users.READ</string>
 		<string>ZohoCRM.org.READ</string>
 		<string>Aaaserver.profile.Read</string>
+		<string>profile.userphoto.READ</string>
 	</array>
 	<key>FirstLaunch</key>
 	<false/>
