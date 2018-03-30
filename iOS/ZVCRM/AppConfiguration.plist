@@ -15,7 +15,7 @@
 	<key>PortalID</key>
 	<string>___VARIABLE_PortalID___</string>
 	<key>ApiBaseURL</key>
-	<string>https://___VARIABLE_ ApiBaseURL___</string>
+	<string>https://___VARIABLE_ApiBaseURL___</string>
 	<key>ApiVersion</key>
 	<string>v2</string>
 	<key>OAuthScopes</key>
