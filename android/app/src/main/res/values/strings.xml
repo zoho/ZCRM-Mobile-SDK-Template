@@ -5,7 +5,7 @@
     <string name="c_secret">___VARIABLE_ClientSecret___</string>
     <string name="redir_url">___VARIABLE_RedirectURLScheme___://</string>
     <string name="url_scheme">___VARIABLE_RedirectURLScheme___</string>
-
+    <string name="c_portal">___VARIABLE_PortalID___</string>
     <string name="accounts_url">https://accounts.zoho.com</string>
 
     <string name="navigation_drawer_open">Open navigation drawer</string>
