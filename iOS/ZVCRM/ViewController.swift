@@ -60,7 +60,7 @@ class ViewController: UIViewController {
             }
             if( contacts.isEmpty == false )
             {
-                for index in 0..<contacts.count - 1
+                for index in 0..<contacts.count
                 {
                     let lastName = try contacts[ index ].getValue( ofField : "Last_Name" ) as! String
                     list.append( lastName )
