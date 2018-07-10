@@ -44,8 +44,11 @@ dependencies {
     compile 'com.android.support:recyclerview-v7:26.+'
     compile 'com.android.support:support-v4:26.+'
     compile "com.android.support:support-core-utils:26.+"
+    compile 'com.android.volley:volley:1.1.0'
+    compile 'android.arch.persistence.room:runtime:1.0.0'
+    compile 'com.google.android.gms:play-services-auth:15.0.0'
 
-    compile(name: 'ZCRMAndroid_V1_3', ext: 'aar') { transitive = true }
-    compile(name: 'ZIAMAndroid_V2_5', ext: 'aar') { transitive = true }
+    compile(name: 'ZCRMAndroid_V1_4_2.aar', ext: 'aar') { transitive = true }
+    compile(name: 'ZIAMAndroid_V0_2', ext: 'aar') { transitive = true }
     compile(name: 'ZVIAMAndroid_V2_12', ext: 'aar') { transitive = true }
 }
