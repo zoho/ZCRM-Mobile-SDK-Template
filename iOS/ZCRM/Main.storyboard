@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="gbv-2L-5QA">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14306.4" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="gbv-2L-5QA">
     <device id="retina5_9" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
-        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14278.2"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -44,15 +44,15 @@
                                 <rect key="frame" x="0.0" y="87.999999999999986" width="375" height="243.66666666666663"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="userAvatar" translatesAutoresizingMaskIntoConstraints="NO" id="K5B-tw-Zft">
-                                        <rect key="frame" x="132" y="18" width="112.66666666666669" height="134"/>
+                                        <rect key="frame" x="131.33333333333334" y="18" width="112.33333333333334" height="134"/>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
                                                 <integer key="value" value="10"/>
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                     </imageView>
-                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="Welcome!" textAlignment="center" adjustsFontForContentSizeCategory="YES" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gLP-tk-gQr">
-                                        <rect key="frame" x="37" y="170" width="300" height="48.666666666666657"/>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="Welcome" textAlignment="center" adjustsFontForContentSizeCategory="YES" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gLP-tk-gQr">
+                                        <rect key="frame" x="37.666666666666657" y="170" width="300" height="48.666666666666657"/>
                                         <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="33"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -74,10 +74,10 @@
                                 <rect key="frame" x="19" y="349.66666666666669" width="165" height="203.00000000000006"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="contacts" translatesAutoresizingMaskIntoConstraints="NO" id="rGL-KJ-o5f">
-                                        <rect key="frame" x="56" y="34.999999999999993" width="52.666666666666657" height="71.333333333333314"/>
+                                        <rect key="frame" x="56" y="35.333333333333314" width="53" height="71"/>
                                     </imageView>
-                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="Contacts" textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sgv-UP-k8T">
-                                        <rect key="frame" x="0.3333333333333286" y="106.33333333333331" width="165" height="36.666666666666657"/>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="CONTACTS" textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sgv-UP-k8T">
+                                        <rect key="frame" x="0.0" y="106.33333333333331" width="165" height="36.666666666666657"/>
                                         <color key="textColor" red="0.062745098040000002" green="0.45098039220000002" blue="0.56470588239999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -98,10 +98,10 @@
                                 <rect key="frame" x="192" y="349.66666666666669" width="165" height="203.00000000000006"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="tasks" translatesAutoresizingMaskIntoConstraints="NO" id="CeL-U4-xPd">
-                                        <rect key="frame" x="58.666666666666657" y="43.666666666666629" width="47.333333333333343" height="59.333333333333343"/>
+                                        <rect key="frame" x="58.666666666666657" y="44" width="47.666666666666657" height="59"/>
                                     </imageView>
-                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="Tasks" textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iev-4I-PUp">
-                                        <rect key="frame" x="0.33333333333334281" y="105.33333333333331" width="165" height="36.666666666666657"/>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="TASKS" textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iev-4I-PUp">
+                                        <rect key="frame" x="0.0" y="105.33333333333331" width="165" height="36.666666666666657"/>
                                         <color key="textColor" red="0.062745098040000002" green="0.45098039220000002" blue="0.56470588239999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
