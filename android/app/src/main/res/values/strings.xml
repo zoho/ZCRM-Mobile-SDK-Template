@@ -10,4 +10,9 @@
 
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
+
+     <string name="contacts">Contacts</string>
+    <string name="tasks">Tasks</string>
+    <string name="user_name">Welcome </string>
+    <string name="todo">TODO</string>
 </resources>
