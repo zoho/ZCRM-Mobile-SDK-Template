@@ -77,7 +77,7 @@
                                         <rect key="frame" x="56" y="34.999999999999993" width="52.666666666666657" height="71.333333333333314"/>
                                     </imageView>
                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="Contacts" textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sgv-UP-k8T">
-                                        <rect key="frame" x="41.666666666666664" y="106.33333333333331" width="82.333333333333343" height="36.666666666666657"/>
+                                        <rect key="frame" x="0.3333333333333286" y="106.33333333333331" width="165" height="36.666666666666657"/>
                                         <color key="textColor" red="0.062745098040000002" green="0.45098039220000002" blue="0.56470588239999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -90,7 +90,7 @@
                                     <constraint firstItem="sgv-UP-k8T" firstAttribute="centerX" secondItem="ERu-Dp-l1G" secondAttribute="centerX" id="KoZ-6M-z5N"/>
                                     <constraint firstItem="rGL-KJ-o5f" firstAttribute="height" secondItem="ERu-Dp-l1G" secondAttribute="height" multiplier="0.35" id="N9h-LI-gf4"/>
                                     <constraint firstAttribute="bottom" secondItem="sgv-UP-k8T" secondAttribute="bottom" constant="60" id="ORj-iY-7AL"/>
-                                    <constraint firstItem="sgv-UP-k8T" firstAttribute="width" secondItem="ERu-Dp-l1G" secondAttribute="width" multiplier="0.5" id="a3Z-ZO-pTE"/>
+                                    <constraint firstItem="sgv-UP-k8T" firstAttribute="width" secondItem="ERu-Dp-l1G" secondAttribute="width" id="a3Z-ZO-pTE"/>
                                     <constraint firstItem="sgv-UP-k8T" firstAttribute="top" secondItem="rGL-KJ-o5f" secondAttribute="bottom" id="kjf-lB-s4H"/>
                                 </constraints>
                             </view>
@@ -101,7 +101,7 @@
                                         <rect key="frame" x="58.666666666666657" y="43.666666666666629" width="47.333333333333343" height="59.333333333333343"/>
                                     </imageView>
                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="Tasks" textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iev-4I-PUp">
-                                        <rect key="frame" x="41.66666666666665" y="105.33333333333331" width="82.333333333333314" height="36.666666666666657"/>
+                                        <rect key="frame" x="0.33333333333334281" y="105.33333333333331" width="165" height="36.666666666666657"/>
                                         <color key="textColor" red="0.062745098040000002" green="0.45098039220000002" blue="0.56470588239999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -109,7 +109,7 @@
                                 </subviews>
                                 <constraints>
                                     <constraint firstItem="CeL-U4-xPd" firstAttribute="width" secondItem="I36-ER-9KX" secondAttribute="width" multiplier="0.29" id="5O7-dk-E6G"/>
-                                    <constraint firstItem="iev-4I-PUp" firstAttribute="width" secondItem="I36-ER-9KX" secondAttribute="width" multiplier="0.5" id="8ls-Gh-MNi"/>
+                                    <constraint firstItem="iev-4I-PUp" firstAttribute="width" secondItem="I36-ER-9KX" secondAttribute="width" id="8ls-Gh-MNi"/>
                                     <constraint firstItem="iev-4I-PUp" firstAttribute="centerX" secondItem="I36-ER-9KX" secondAttribute="centerX" id="C14-Pv-9tv"/>
                                     <constraint firstItem="iev-4I-PUp" firstAttribute="top" secondItem="CeL-U4-xPd" secondAttribute="bottom" constant="2.5" id="GPj-d7-OxJ"/>
                                     <constraint firstItem="CeL-U4-xPd" firstAttribute="centerX" secondItem="I36-ER-9KX" secondAttribute="centerX" id="OhA-Wj-VfR"/>
@@ -140,7 +140,9 @@
                     <connections>
                         <outlet property="TasksBtn" destination="I36-ER-9KX" id="kZS-Bb-MOe"/>
                         <outlet property="contactsBtn" destination="ERu-Dp-l1G" id="KMj-TH-su4"/>
+                        <outlet property="contactsBtnText" destination="sgv-UP-k8T" id="OwR-dl-27e"/>
                         <outlet property="profileImage" destination="K5B-tw-Zft" id="QG6-Oc-vBN"/>
+                        <outlet property="tasksBtnText" destination="iev-4I-PUp" id="Xsv-Mk-Q9R"/>
                         <outlet property="userTextView" destination="gLP-tk-gQr" id="Lva-K5-dlE"/>
                         <segue destination="7j9-Hi-v8B" kind="show" identifier="listView" id="oWA-1p-b8K"/>
                     </connections>

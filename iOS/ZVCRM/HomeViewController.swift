@@ -15,6 +15,8 @@ class HomeViewController: UIViewController {
 	@IBOutlet weak var userTextView: UITextView!
 	@IBOutlet weak var contactsBtn: UIView!
 	@IBOutlet weak var tasksBtn: UIView!
+	@IBOutlet weak var contactsBtnText: UITextView!
+	@IBOutlet weak var tasksBtnText: UITextView!
 	
 	private let restClient : ZCRMRestClient = ZCRMRestClient()
 	private var records: [ZCRMRecord] = [ZCRMRecord]()
@@ -31,7 +33,7 @@ class HomeViewController: UIViewController {
 				self.showUserImage()
 			}
 		}
-			self.title = "Zoho Corp"
+		
 		self.addLogoutButton()
 		self.addGestures()
 		self.addShadows()
@@ -58,7 +60,7 @@ class HomeViewController: UIViewController {
 			let currentUser: ZCRMUser = try self.restClient.getCurrentUser().getData() as! ZCRMUser
 			let profilePicture: Data = try currentUser.downloadProfilePhoto().getFileData()
 			self.profileImage.image = UIImage(data: profilePicture)
-			self.userTextView.text = self.userTextView.text + " " + currentUser.getFullName()!
+			self.userTextView.text = "Welcome, " + currentUser.getFullName()! + "!"
 			self.profileImage.layer.cornerRadius = self.profileImage.frame.size.width / 2
 
 		} catch {
@@ -145,5 +147,9 @@ class HomeViewController: UIViewController {
 		self.contactsBtn.layer.borderWidth = 0.6
 		self.tasksBtn.layer.borderColor = UIColor.gray.cgColor
 		self.tasksBtn.layer.borderWidth = 0.6
+		self.contactsBtnText.font = UIFont.systemFont(ofSize: 16)
+		self.tasksBtnText.font = UIFont.systemFont(ofSize: 16)
+		self.userTextView.font = UIFont.systemFont(ofSize: 21)
+		
 	}
 }
