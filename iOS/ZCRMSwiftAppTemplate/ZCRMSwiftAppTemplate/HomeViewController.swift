@@ -1,6 +1,9 @@
 //
 //  HomeViewController.swift
-//  ZCRMSwiftAppTemplate
+//  ZohoiOS
+//
+//  Created by Sarath Kumar Rajendran on 06/08/18.
+//  Copyright © 2018 ZohoiOSOrg. All rights reserved.
 //
 
 import UIKit
@@ -10,6 +13,8 @@ class HomeViewController: UIViewController {
 
 	@IBOutlet weak var profileImage: UIImageView!
 	@IBOutlet weak var userTextView: UITextView!
+	@IBOutlet weak var contactsBtn: UIView!
+	@IBOutlet weak var tasksBtn: UIView!
 	
 	private let restClient : ZCRMRestClient = ZCRMRestClient()
 	private var records: [ZCRMRecord] = [ZCRMRecord]()
@@ -22,11 +27,15 @@ class HomeViewController: UIViewController {
 			if( success == true )
 			{
 				print( "Login successful" )
-				self.addLogoutButton()
 				self.setOrganizationTitle()
 				self.showUserImage()
 			}
 		}
+			self.title = "Zoho Corp"
+		self.addLogoutButton()
+		self.addGestures()
+		self.addShadows()
+		self.renderNavBar()
     }
 
     override func didReceiveMemoryWarning() {
@@ -69,12 +78,12 @@ class HomeViewController: UIViewController {
 		}
 	}
 	
-	@IBAction func showContacts(_ sender: Any) {
+	@objc private func showContacts(_ sender: Any) {
 		
 		self.getRecords(moduleApi: "Contacts")
 	}
 	
-	@IBAction func showTasks(_ sender: Any) {
+	@objc private func showTasks(_ sender: Any) {
 		
 		self.getRecords(moduleApi: "Tasks")
 	}
@@ -104,6 +113,15 @@ class HomeViewController: UIViewController {
 		}
 	}
 	
+	private func renderNavBar() {
+		
+		self.navigationController?.navigationBar.tintColor = .green
+		let attrs = [NSAttributedStringKey.foregroundColor: UIColor.white, NSAttributedStringKey.font : UIFont.systemFont(ofSize: 22)]
+		self.navigationController?.navigationBar.titleTextAttributes = attrs
+		self.navigationController?.navigationBar.barTintColor = UIColor(red: 11/255, green: 94/255, blue: 122/255, alpha: 0)
+		
+	}
+	
 	
 	private func addLogoutButton() {
 		
@@ -112,5 +130,20 @@ class HomeViewController: UIViewController {
 		button.addTarget(self, action: #selector(self.logout(_:)), for: .touchUpInside)
 		self.navigationItem.rightBarButtonItem = UIBarButtonItem(customView: button)
 	}
+	
+	private func addGestures() {
+		
+		var tapGesture : UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(self.showContacts(_:)))
+		self.contactsBtn.addGestureRecognizer(tapGesture);
+		tapGesture = UITapGestureRecognizer(target: self, action: #selector(self.showTasks(_:)))
+		self.tasksBtn.addGestureRecognizer(tapGesture)
+	}
 
+	private func addShadows() {
+		
+		self.contactsBtn.layer.borderColor = UIColor.gray.cgColor
+		self.contactsBtn.layer.borderWidth = 0.6
+		self.tasksBtn.layer.borderColor = UIColor.gray.cgColor
+		self.tasksBtn.layer.borderWidth = 0.6
+	}
 }
