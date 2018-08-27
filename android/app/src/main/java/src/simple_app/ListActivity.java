@@ -23,9 +23,6 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
-/**
- * Created by sarath-zuch594 on 09/08/18.
- */
 
 public class ListActivity extends ZCRMBaseActivity {
 

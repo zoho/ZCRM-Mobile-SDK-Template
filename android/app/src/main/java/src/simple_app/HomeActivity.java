@@ -34,7 +34,6 @@ public class HomeActivity extends ZCRMBaseActivity implements DataHandler{
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.main_page, menu);
-//        loadViews();
         return true;
     }
 
