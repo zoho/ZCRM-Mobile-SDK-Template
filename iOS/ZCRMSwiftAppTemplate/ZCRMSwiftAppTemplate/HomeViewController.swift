@@ -1,9 +1,6 @@
 //
 //  HomeViewController.swift
-//  ZohoiOS
-//
-//  Created by Sarath Kumar Rajendran on 06/08/18.
-//  Copyright © 2018 ZohoiOSOrg. All rights reserved.
+//  ZCRMSwiftAppTemplate
 //
 
 import UIKit
