@@ -23,46 +23,49 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
-public class ContactsActivity extends ZCRMBaseActivity {
+
+public class ListActivity extends ZCRMBaseActivity {
 
     public static ArrayAdapter<ZCRMRecord> adapter;
     public static ListView recordList;
     public static List records = new ArrayList();
     public static List storeList = new ArrayList();
+    private static String moduleApiName;
 
     ProgressBar mProgress;
     SwipeRefreshLayout refreshLayout;
-    TextView emptylist;
+    TextView emptyList;
     TextView loading;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.module_tab);
-        getSupportActionBar().setTitle("Contacts");
-        emptylist = (TextView) findViewById(R.id.textView32);
-        emptylist.setText("");
+
+        moduleApiName = getIntent().getStringExtra("module");
+        getSupportActionBar().setTitle(moduleApiName);
+
+        emptyList = (TextView) findViewById(R.id.textView32);
+        emptyList.setText("");
         loading = (TextView) findViewById(R.id.loading);
         initiatePage();
     }
 
-    public void initiatePage()
-    {
+    public void initiatePage() {
         initiateList();
 
-        refreshLayout = (SwipeRefreshLayout) findViewById(R.id.modulerefresh);
-        refreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener()
-        {
+        refreshLayout = findViewById(R.id.modulerefresh);
+        refreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
-            public void onRefresh()
-            {
+            public void onRefresh() {
                 clearList();
                 ApiModeRunner runner = new ApiModeRunner();
                 runner.execute();
             }
         });
 
-        mProgress = (ProgressBar) findViewById(R.id.moduleprogress);
+        mProgress = findViewById(R.id.moduleprogress);
         mProgress.setVisibility(ProgressBar.VISIBLE);
         loading.setText("LOADING.. please wait."); //No I18N
 
@@ -70,108 +73,103 @@ public class ContactsActivity extends ZCRMBaseActivity {
         runner.execute();
     }
 
-    public void recordList() throws ZCRMException
-    {
+    public void recordList() throws ZCRMException {
         ZCRMRecord zcrmRecord;
         Iterator itr = records.iterator();
-        while (itr.hasNext())
-        {
+        while (itr.hasNext()) {
             zcrmRecord = (ZCRMRecord) itr.next();
-            addRecordToList(zcrmRecord,new RecordListAdapter());
+            addRecordToList(zcrmRecord, new RecordListAdapter());
         }
         setPageRefreshingOff();
     }
 
-    public void initiateList()
-    {
-        recordList = (ListView) findViewById(R.id.listView);
+    public void initiateList() {
+        recordList = findViewById(R.id.listView);
         recordList.setAdapter(adapter);
         records.clear();
         storeList.clear();
 
-        recordList.setOnItemClickListener(new AdapterView.OnItemClickListener()
-        {
+        recordList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
-            public void onItemClick(final AdapterView adapterView, View view, final int position, long idy)
-            {
+            public void onItemClick(final AdapterView adapterView, View view, final int position, long idy) {
                 //load record's detail page here
             }
         });
 
     }
 
-    public void addRecordToList(ZCRMRecord zcrmRecord, Object recordListHandler)
-    {
+    public void addRecordToList(ZCRMRecord zcrmRecord, Object recordListHandler) {
         storeList.add(zcrmRecord);
         adapter = (ArrayAdapter<ZCRMRecord>) recordListHandler;
         recordList.setAdapter(adapter);
     }
 
-    public void setPageRefreshingOff()
-    {
+    public void setPageRefreshingOff() {
         refreshLayout.setRefreshing(false);
         mProgress.setVisibility(ProgressBar.INVISIBLE);
         loading.setText("");
 
-        if(records.isEmpty())
-        {
-            emptylist.setText("Seems you have nothing...");
+        if (records.isEmpty()) {
+            emptyList.setText("Seems you have nothing...");
         }
     }
 
-    public void clearList()
-    {
+    public void clearList() {
         records.clear();
         storeList.clear();
     }
 
-    class RecordListAdapter extends ArrayAdapter<ZCRMRecord>
-    {
-        public RecordListAdapter()
-        {
+    class RecordListAdapter extends ArrayAdapter<ZCRMRecord> {
+        public RecordListAdapter() {
             super(getBaseApplicationContext(), R.layout.list_item, storeList);
         }
 
         @Override
         public View getView(int position, View view, ViewGroup parent) {
-            if (view == null)
-            {
-                LayoutInflater inflater = (LayoutInflater) getApplicationContext().getSystemService( Context.LAYOUT_INFLATER_SERVICE );
+            if (view == null) {
+                LayoutInflater inflater = (LayoutInflater) getApplicationContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
                 view = inflater.inflate(R.layout.list_item, parent, false);
             }
-            ZCRMRecord record = (ZCRMRecord) storeList.get(position);
-            try
-            {
-                TextView name = (TextView) view.findViewById(R.id.textView4);
-                String fullName = "";
-                if(record.getFieldValue("First_Name") != null)
-                {
-                    fullName += record.getFieldValue("First_Name") + " ";
-                }
-                fullName += record.getFieldValue("Last_Name");
-                name.setText(fullName);
 
-                String email, mobile;
-                if(record.getFieldValue("Email") == null)
-                {
-                    email = "No Email";
+            ZCRMRecord record = (ZCRMRecord) storeList.get(position);
+            try {
+                TextView primaryField = view.findViewById(R.id.textView4);
+                TextView secondaryField = view.findViewById(R.id.textView5);
+                TextView tertiaryField = view.findViewById(R.id.textView6);
+                String primaryFieldValue = "";
+                String secondaryFieldValue = "";
+                String tertiaryFieldValue = "";
+
+                if (moduleApiName.equals("Contacts")) {
+
+                    if (record.getFieldValue("First_Name") != null) {
+                        primaryFieldValue += record.getFieldValue("First_Name") + " ";
+                    }
+                    primaryFieldValue += record.getFieldValue("Last_Name");
+
+                    if (record.getFieldValue("Email") == null) {
+                        secondaryFieldValue = "No Email";
+                    } else {
+                        secondaryFieldValue = record.getFieldValue("Email").toString();
+                    }
+                    if (record.getFieldValue("Phone") == null) {
+                        tertiaryFieldValue = "No Phone";
+                    } else {
+                        tertiaryFieldValue = record.getFieldValue("Phone").toString();
+                    }
+
+                } else if (moduleApiName.equals("Tasks")) {
+
+                    primaryFieldValue = record.getFieldValue("Subject").toString();
+                    secondaryFieldValue = record.getFieldValue("Status").toString();
+                    tertiaryFieldValue = record.getFieldValue("Priority").toString();
                 }
-                else
-                {
-                    email = record.getFieldValue("Email").toString();
-                }
-                if(record.getFieldValue("Mobile") == null)
-                {
-                    mobile = "No Mobile";
-                }
-                else
-                {
-                    mobile = record.getFieldValue("Mobile").toString();
-                }
-                TextView phone = view.findViewById(R.id.textView5);
-                phone.setText(mobile);
-                TextView emailView = view.findViewById(R.id.textView6);
-                emailView.setText(email);
+
+
+                primaryField.setText(primaryFieldValue);
+                secondaryField.setText(secondaryFieldValue);
+                tertiaryField.setText(tertiaryFieldValue);
+
             } catch (ZCRMException e) {
                 e.printStackTrace();
             }
@@ -181,13 +179,14 @@ public class ContactsActivity extends ZCRMBaseActivity {
     }
 
     class ApiModeRunner extends AsyncTask<String, String, String> {
+
         private String resp;
 
 
         @Override
         protected String doInBackground(String... params) {
             try {
-                ZCRMModule module = ZCRMRestClient.getInstance().getModuleInstance("Contacts");
+                ZCRMModule module = ZCRMRestClient.getInstance().getModuleInstance(moduleApiName);
                 records = module.getRecords().getData();
                 resp = "success";
             } catch (Exception e) {
