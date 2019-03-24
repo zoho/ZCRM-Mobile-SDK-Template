@@ -1,10 +1,9 @@
-package com.crm.sample_contacts_app;
+package src.simple_app;
 
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.AsyncTask;
 
-import com.google.android.gms.common.api.Api;
 import com.zoho.crm.library.common.CommonUtil;
 import com.zoho.crm.library.exception.ZCRMException;
 import com.zoho.crm.library.setup.metadata.ZCRMOrganization;

@@ -1,21 +1,25 @@
-package com.crm.sample_contacts_app;
+package src.simple_app;
 
 import android.app.AlertDialog;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import com.zoho.crm.sdk.android.zcrmandroid.activity.ZCRMBaseActivity;
+import android.widget.Toast;
 
+import com.zoho.crm.library.exception.ZCRMException;
+import com.zoho.crm.sdk.android.zcrmandroid.activity.ZohoCRMSDK;
 
-public class HomeActivity extends ZCRMBaseActivity implements DataHandler{
+public class HomeActivity extends AppCompatActivity implements DataHandler {
 
     private ImageView myImage;
     private TextView userNameView;
@@ -27,8 +31,7 @@ public class HomeActivity extends ZCRMBaseActivity implements DataHandler{
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.home_activity);
-        loadViews();
-
+//        login();
     }
 
     @Override
@@ -62,19 +65,60 @@ public class HomeActivity extends ZCRMBaseActivity implements DataHandler{
         }
     }
 
+    private void login() {
+
+        final Context context = this;
+        try {
+            ZohoCRMSDK zohoCRMSDK = ZohoCRMSDK.getInstance(getApplicationContext());
+            zohoCRMSDK.init(getAssets(), new ZohoCRMSDK.ZCRMInitCallback() {
+                @Override
+                public void onSuccess() {
+                    runOnUiThread(new Runnable() {
+                        @Override
+                        public void run() {
+                            loadViews();
+                        }
+                    });
+                }
+
+                @Override
+                public void onFailed(ZCRMException e) {
+                    runOnUiThread(new Runnable() {
+                        @Override
+                        public void run() {
+                            Toast.makeText(context, "SDK initialization failed.", Toast.LENGTH_SHORT).show();
+                        }
+                    });
+                }
+            });
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
 
 
-    public void logout()
+    private void logout()
     {
-        super.logout(new OnLogoutListener() {
+        final Context context = this;
+        ZohoCRMSDK.getInstance(this).logout(new ZohoCRMSDK.ZCRMLogoutCallback() {
             @Override
-            public void onLogoutSuccess() {
-                System.out.println(">> Logout Success");
+            public void onSuccess() {
+                runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+                        login();
+                    }
+                });
             }
 
             @Override
-            public void onLogoutFailed() {
-                System.out.println(">> Logout Failed");
+            public void onFailed() {
+                runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+                        Toast.makeText(context, "Logout failed.", Toast.LENGTH_SHORT).show();
+                    }
+                });
             }
         });
     }
@@ -164,7 +208,9 @@ public class HomeActivity extends ZCRMBaseActivity implements DataHandler{
         runOnUiThread(new Runnable() {
             @Override
             public void run() {
-                getSupportActionBar().setTitle(orgName);
+                if (getSupportActionBar() != null) {
+                    getSupportActionBar().setTitle(orgName);
+                }
             }
         });
     }
