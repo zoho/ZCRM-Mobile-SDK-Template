@@ -30,8 +30,8 @@ public class HomeActivity extends AppCompatActivity implements DataHandler {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.home_activity);
-//        login();
+        setContentView(R.layout.home_activity)  ;
+        showLogin();
     }
 
     @Override
@@ -65,7 +65,7 @@ public class HomeActivity extends AppCompatActivity implements DataHandler {
         }
     }
 
-    private void login() {
+    private void showLogin() {
 
         final Context context = this;
         try {
@@ -86,7 +86,7 @@ public class HomeActivity extends AppCompatActivity implements DataHandler {
                     runOnUiThread(new Runnable() {
                         @Override
                         public void run() {
-                            Toast.makeText(context, "SDK initialization failed.", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(context, "Login failed.", Toast.LENGTH_SHORT).show();
                         }
                     });
                 }
@@ -106,7 +106,7 @@ public class HomeActivity extends AppCompatActivity implements DataHandler {
                 runOnUiThread(new Runnable() {
                     @Override
                     public void run() {
-                        login();
+                        showLogin();
                     }
                 });
             }
