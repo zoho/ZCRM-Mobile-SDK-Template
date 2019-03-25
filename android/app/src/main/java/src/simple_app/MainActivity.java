@@ -1,16 +1,10 @@
-package com.crm.sample_contacts_app;
+package src.simple_app;
 
-import android.app.AlertDialog;
-import android.content.DialogInterface;
-import android.content.Intent;
 import android.os.Bundle;
-import android.view.Menu;
-import android.view.MenuItem;
-import android.view.View;
+import android.support.v7.app.AppCompatActivity;
 
-import com.zoho.crm.sdk.android.zcrmandroid.activity.ZCRMBaseActivity;
 
-public class MainActivity extends ZCRMBaseActivity {
+public class MainActivity extends AppCompatActivity {
 
 
     @Override

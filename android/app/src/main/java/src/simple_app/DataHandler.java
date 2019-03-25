@@ -1,4 +1,4 @@
-package com.crm.sample_contacts_app;
+package src.simple_app;
 
 import android.graphics.Bitmap;
 

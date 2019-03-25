@@ -1,20 +1,38 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-      package="___VARIABLE_BUNDLEID___"
-      android:versionCode="1"
-      android:versionName="1.0">
+    xmlns:tools="http://schemas.android.com/tools"
+    package="___VARIABLE_BUNDLEID___"
+    android:versionCode="1"
+    android:versionName="1.0"
+    tools:ignore="GradleOverrides">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
-        android:theme="@style/AppTheme">
+        android:theme="@style/AppTheme"
+        tools:ignore="GoogleAppIndexingWarning">
 
-         <activity
+        <!-- Change MainActivity as Launcher and start working.-->
+
+        <activity
             android:name=".MainActivity"
             android:label="Main Activity"
             android:theme="@style/AppTheme" />
 
-        <activity android:name=".HomeActivity" android:theme="@style/AppTheme"/>
-        <activity android:name=".ListActivity" android:parentActivityName=".HomeActivity"/>
+        <activity
+            android:name=".HomeActivity"
+            android:theme="@style/AppTheme">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name=".ListActivity"
+            android:parentActivityName=".HomeActivity" />
     </application>
-    <uses-permission android:name="android.permission.INTERNET"/>
 </manifest>
